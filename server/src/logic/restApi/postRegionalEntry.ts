@@ -30,6 +30,7 @@ export function registPostRegionalEntry(server) {
 
 /**
  * postRegionalEntry
+ * Entryを投稿
  * @param  {DBPoolManager}                dbpm       [description]
  * @param  {string}                       name       [description]
  * @param  {number[]}                     tag_ids    [description]
