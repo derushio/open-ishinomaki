@@ -14,6 +14,7 @@ export default class ColumnTypes {
     static boolean = new ColumnType("BOOLEAN", Boolean)
 
     static text = new ColumnType("TEXT", String)
+    static textArray = new ColumnType("TEXT[]", Array)
 
     static jsonb = new ColumnType("JSONB", JsonbModel)
 
