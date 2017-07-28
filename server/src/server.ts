@@ -12,7 +12,7 @@ createTables().then(() => {
 }).then(() => {
     const port = 8000
 
-    server.use(bodyParser.json({extended: true}))
+    server.use(bodyParser.json({ limit:'10mb',extended: true }))
     server.use(express.static("../web/"))
     server.listen(port, null)
 
