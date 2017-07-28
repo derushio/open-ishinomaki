@@ -1,4 +1,5 @@
 import {registGetAllTags} from "./getAllTags"
+import {registPostRegionalEntry} from "./postRegionalEntry"
 
 /**
  * rest api を登録
@@ -6,4 +7,5 @@ import {registGetAllTags} from "./getAllTags"
  */
 export default function registRestApis(server): void {
     registGetAllTags(server)
+    registPostRegionalEntry(server)
 }

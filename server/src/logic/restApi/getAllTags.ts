@@ -8,6 +8,7 @@ export function registGetAllTags(server) {
             return getAllTags(dbpm)
         }).then((tags: RegionalEntryTagRecord[]) => {
             response.send(JSON.stringify({
+                response: "ok",
                 tags: tags.map((tag: RegionalEntryTagRecord) => {
                     return tag.toObject()
                 })
@@ -16,6 +17,7 @@ export function registGetAllTags(server) {
             // エラー発生
             response.status(500)
             response.send(JSON.stringify({
+                response: "ng",
                 error: e
             }))
         })

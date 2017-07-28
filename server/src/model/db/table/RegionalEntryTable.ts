@@ -8,7 +8,7 @@ export default class RegionalEntryTable extends Table {
         new Column("id", ColumnTypes.serial, false, null, true),
         new Column("name", ColumnTypes.text, true),
         new Column("tag_ids", ColumnTypes.intArray, false),
-        new Column("imageUrls", ColumnTypes.textArray, false),
+        new Column("image_urls", ColumnTypes.textArray, false),
         new Column("text", ColumnTypes.text, true)
     ]
 }

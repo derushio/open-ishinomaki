@@ -77,8 +77,12 @@ export default class DBPoolManager {
     }
 }
 
-export function escape(value: any): string {
-    if (value == null || typeof value != String.name.toLowerCase()) {
+export function escape(value: any): any {
+    if (value instanceof Array) {
+        return value.map((value1: any) => {
+            return escape(value1)
+        })
+    } else if (value == null || typeof value != String.name.toLowerCase()) {
         return value
     }
     return value.replace(/'/g, "''")
