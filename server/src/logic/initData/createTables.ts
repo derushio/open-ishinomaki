@@ -1,6 +1,6 @@
-import DBPoolManager from "../manager/DBPoolManager"
-import RegionalEntryTable from "../model/db/table/RegionalEntryTable"
-import RegionalEntryTagTable from "../model/db/table/RegionalEntryTagTable"
+import DBPoolManager from "../../manager/DBPoolManager"
+import RegionalEntryTable from "../../model/db/table/RegionalEntryTable"
+import RegionalEntryTagTable from "../../model/db/table/RegionalEntryTagTable"
 
 /**
  * 初期起動時にテーブルを作る
