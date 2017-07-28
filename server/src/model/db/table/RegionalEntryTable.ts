@@ -8,6 +8,8 @@ export default class RegionalEntryTable extends Table {
         new Column("id", ColumnTypes.serial, false, null, true),
         new Column("name", ColumnTypes.text, true),
         new Column("tag_ids", ColumnTypes.intArray, false),
+        // BASE64 画像データ
+        // TODO: bytea型へ変換する
         new Column("images", ColumnTypes.textArray, false),
         new Column("text", ColumnTypes.text, true)
     ]
