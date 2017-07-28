@@ -24,7 +24,7 @@ RegionalEntryTagRecord.TableClass = RegionalEntryTagTable
  */
 export function createTag(dbpm: DBPoolManager, name: string): Promise<RegionalEntryTagRecord> {
     const regionalEntryTagTable = new RegionalEntryTagTable(dbpm)
-    return regionalEntryTagTable.search("name=" + escape(name)).then((regionalEntryTags: RegionalEntryTagRecord[]) => {
+    return regionalEntryTagTable.search("name='" + escape(name) + "'").then((regionalEntryTags: RegionalEntryTagRecord[]) => {
         if (regionalEntryTags.length == 0) {
             return null
         }
