@@ -2,6 +2,7 @@ import DBPoolManager from "../../manager/DBPoolManager"
 import RegionalEntryTagTable, {RegionalEntryTagRecord} from "../../model/db/table/RegionalEntryTagTable"
 
 export function registGetAllTags(server) {
+    // getメソッドに応答
     server.get("/api/getAllTags" ,(request, response, next) => {
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
             getAllTags(dbpm).then((tags: RegionalEntryTagRecord[]) => {
@@ -11,6 +12,7 @@ export function registGetAllTags(server) {
                     })
                 }))
             }).catch((e: Error) => {
+                // エラー発生
                 response.status(500)
                 response.send(JSON.stringify({
                     error: e
