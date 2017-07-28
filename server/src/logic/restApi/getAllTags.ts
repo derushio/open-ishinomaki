@@ -27,7 +27,7 @@ export function registGetAllTags(server) {
  * @param  {[type]}                            dbpm [description]
  * @return {Promise<RegionalEntryTagRecord[]>}      [description]
  */
-export default function getAllTags(dbpm): Promise<RegionalEntryTagRecord[]> {
+export default function getAllTags(dbpm: DBPoolManager): Promise<RegionalEntryTagRecord[]> {
     const regionalEntryTagTable = new RegionalEntryTagTable(dbpm)
     return regionalEntryTagTable.search("0=0")
 }
