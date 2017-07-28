@@ -13,7 +13,7 @@ export default class JsonbModel extends PsqlModel {
      * @param  {any}       rp [description]
      * @return {PsqlModel}     [description]
      */
-    public static fromPsql(rp: any): PsqlModel {
+    public static fromPsql(rp: any): JsonbModel {
         let jsonb
         jsonb = new JsonbModel(rp)
 

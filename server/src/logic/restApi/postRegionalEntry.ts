@@ -4,10 +4,10 @@ import RegionalEntryTable, {RegionalEntryRecord} from "../../model/db/table/Regi
 export function registPostRegionalEntry(server) {
     // postメソッドに応答
     server.post("/api/postRegionalEntry" ,(request, response, next) => {
-        const name = escape(request.body.name)
-        const tag_ids = escape(request.body.tag_ids)
-        const text = escape(request.body.text)
-        const images = escape(request.body.images)
+        const name: string = escape(request.body.name)
+        const tag_ids: number[] = escape(request.body.tag_ids)
+        const text: string = escape(request.body.text)
+        const images: string[] = escape(request.body.images)
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
             return postRegionalEntry(dbpm, name, tag_ids, images, text)

@@ -11,7 +11,8 @@ export default class RegionalEntryTable extends Table {
         // BASE64 画像データ
         // TODO: bytea型へ変換する
         new Column("images", ColumnTypes.textArray, false),
-        new Column("text", ColumnTypes.text, true)
+        new Column("text", ColumnTypes.text, true),
+        new Column("latlng", ColumnTypes.point, true)
     ]
 }
 

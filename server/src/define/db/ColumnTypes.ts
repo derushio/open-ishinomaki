@@ -1,6 +1,7 @@
 import ColumnType from "../../model/db/column/ColumnType"
 import JsonbModel from "../../model/db/column/psqlmodel/JsonbModel"
 import DateModel from "../../model/db/column/psqlmodel/DateModel"
+import PointModel from "../../model/db/column/psqlmodel/PointModel"
 
 export default class ColumnTypes {
     static serial = new ColumnType("SERIAL", Number)
@@ -19,4 +20,6 @@ export default class ColumnTypes {
     static jsonb = new ColumnType("JSONB", JsonbModel)
 
     static date = new ColumnType("DATE", DateModel)
+
+    static point = new ColumnType("POINT", PointModel)
 }
