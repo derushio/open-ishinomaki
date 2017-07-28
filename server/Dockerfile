@@ -20,7 +20,7 @@ RUN v=7.10.0; nodebrew install-binary $v; nodebrew use $v
 
 ADD ./tool/docker/resource/cmd.sh /cmd.sh
 RUN chmod 755 /cmd.sh
-EXPOSE 80
+EXPOSE 8000
 
 # docker run時に実行される
 CMD /cmd.sh
