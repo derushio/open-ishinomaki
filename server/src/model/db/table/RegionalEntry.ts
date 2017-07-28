@@ -7,7 +7,7 @@ export default class RegionalEntryTable extends Table {
     public static columns: Column[] = [
         new Column("id", ColumnTypes.serial, false, null, true),
         new Column("name", ColumnTypes.text, true),
-        new Column("category_ids", ColumnTypes.intArray, false),
+        new Column("tag_ids", ColumnTypes.intArray, false),
         new Column("imageUrls", ColumnTypes.textArray, false),
         new Column("text", ColumnTypes.text, true)
     ]
