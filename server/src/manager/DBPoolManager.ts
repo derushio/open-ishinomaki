@@ -15,9 +15,9 @@ export default class DBPoolManager {
     private client: any
 
     private static DB_CONF = {
-        user: "",
-        database: "",
-        password: "",
+        user: "root",
+        database: "open_ishinomaki",
+        password: "KsJaA4uQ",
         host: "localhost",
         port: 5432,
         max: 10,
