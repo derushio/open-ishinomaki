@@ -6,13 +6,11 @@ export function registPostRegionalEntry(server) {
     server.post("/api/postRegionalEntry" ,(request, response, next) => {
         const name = escape(request.body.name)
         const tag_ids = escape(request.body.tag_ids)
-        const image_urls = escape(request.body.image_urls)
         const text = escape(request.body.text)
-
-        console.log(tag_ids)
+        const images = escape(request.body.images)
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
-            return postRegionalEntry(dbpm, name, tag_ids, image_urls, text)
+            return postRegionalEntry(dbpm, name, tag_ids, images, text)
         }).then(() => {
             response.send(JSON.stringify({
                 response: "ok"
@@ -39,13 +37,13 @@ export function registPostRegionalEntry(server) {
  * @return {Promise<RegionalEntryRecord>}            [description]
  */
 export default function postRegionalEntry(dbpm: DBPoolManager, name: string,
-        tag_ids: number[], image_urls: string[], text: string): Promise<RegionalEntryRecord> {
+        tag_ids: number[], images: string[], text: string): Promise<RegionalEntryRecord> {
     const regionalEntryTable = new RegionalEntryTable(dbpm)
     const regionalEntryRecord = new RegionalEntryRecord()
     regionalEntryRecord.setValues({
         name: name,
         tag_ids: tag_ids,
-        image_urls: image_urls,
+        images: images,
         text: text
     })
 
