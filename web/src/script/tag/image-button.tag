@@ -1,4 +1,5 @@
 image-button
+
   a(href="{href}")
     img(riot-src="{image}")
 
