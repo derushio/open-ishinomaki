@@ -28,5 +28,5 @@ export function registGetRegionalEntry(server) {
 }
 
 export default function getRegionalEntry(dbpm: DBPoolManager) {
-
+    
 }
