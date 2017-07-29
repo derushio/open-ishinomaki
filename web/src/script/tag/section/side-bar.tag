@@ -8,3 +8,7 @@ side-bar
         side-bar
             display: block
             background: $color-main-theme
+
+        regional-search, tag-search
+            width: 90%
+            margin: 32px auto
