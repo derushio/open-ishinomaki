@@ -28,4 +28,17 @@ export default class Base64 {
     public static decode(base64: string): string {
         return decodeURIComponent(escape(atob(base64)))
     }
+
+    public static decodeToImage(base64: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            const img = new Image()
+            img.onload = () => {
+                resolve(img)
+            }
+            img.onerror = (e) => {
+                reject(e)
+            }
+            img.src = base64
+        })
+    }
 }
