@@ -8,4 +8,4 @@ su - postgres -c "psql -U postgres -c \"CREATE ROLE root WITH LOGIN CREATEDB PAS
 su - postgres -c "psql -U postgres -c \"CREATE DATABASE root OWNER root;\""
 psql -c "CREATE DATABASE open_ishinomaki OWNER root;"
 
-bash
+cd /etc/product/open-ishinomaki/server; node server
