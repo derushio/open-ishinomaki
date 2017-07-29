@@ -6,6 +6,7 @@ export function registGetRegional(server) {
     server.get("/api/getRegional" ,(request, response, next) => {
         // 検索
         const q: string = escape(request.query.q)
+
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
             return getRegional(dbpm, q)
         }).then((regionals: RegionalRecord[]) => {
