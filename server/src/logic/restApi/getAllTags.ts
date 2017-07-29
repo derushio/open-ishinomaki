@@ -18,6 +18,7 @@ export function registGetAllTags(server) {
             response.status(500)
             response.send(JSON.stringify({
                 response: "ng",
+                message: e.message,
                 error: e
             }))
         })

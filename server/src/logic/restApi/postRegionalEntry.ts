@@ -25,7 +25,8 @@ export function registPostRegionalEntry(server) {
             response.status(500)
             response.send(JSON.stringify({
                 response: "ng",
-                error: e.message
+                message: e.message,
+                error: e
             }))
         })
     })

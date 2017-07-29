@@ -14,16 +14,20 @@ export function registGetRegionalEntries(server) {
         const regional_id_maps: RegionalIdMapForGet[] = escape(request.body.regional_id_maps)
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
-
-        }).then(() => {
+            return getRegionalEntries(dbpm, q, tag_ids, tag_and_search,regional_id_maps)
+        }).then((entries: RegionalEntryRecord[]) => {
             response.send(JSON.stringify({
-                response: "ok"
+                response: "ok",
+                entries: entries.map((entry) => {
+                    return entry.toObject()
+                })
             }))
         }).catch((e: Error) => {
             // エラー発生
             response.status(500)
             response.send(JSON.stringify({
                 response: "ng",
+                message: e.message,
                 error: e
             }))
         })
