@@ -13,7 +13,7 @@ search
             width: 64px
             height: 100%
             border-radius: 6px
-            margin: 0 16px
+            margin: 0 0 0 8px
 
         input
             border: 1px solid black
