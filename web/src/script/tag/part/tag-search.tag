@@ -1,4 +1,4 @@
-tagsearch
+tag-search
     h3 タグ
     .searchtag(each="{searchtag, i in searchtags}")
         input(type="checkbox" id="{'tagacc'+i}").acc-check
@@ -14,6 +14,9 @@ tagsearch
         ]
 
     style(type="sass").
+        tag-search
+            display: block
+
         h3
             color: red
 
