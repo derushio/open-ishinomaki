@@ -17,7 +17,7 @@ export default class RegionalTable extends Table {
     public static columns: Column[] = [
         new Column("id", ColumnTypes.serial, false, null, true),
         new Column("name", ColumnTypes.text, true),
-        new Column("sub_regional", ColumnTypes.textArray, false)
+        new Column("sub_regionals", ColumnTypes.jsonb, false)
     ]
 }
 
@@ -33,12 +33,14 @@ RegionalRecord.TableClass = RegionalTable
  * @param  {string[]}                sub_regional [description]
  * @return {Promise<RegionalRecord>}              [description]
  */
-export function createRegional(dbpm: DBPoolManager, name: string, sub_regional: string[]): Promise<RegionalRecord> {
+export function createRegional(dbpm: DBPoolManager, name: string, sub_regionals: string[]): Promise<RegionalRecord> {
     const regionalTable = new RegionalTable(dbpm)
     const regionalRecord = new RegionalRecord()
     regionalRecord.setValues({
         name: name,
-        sub_regional: sub_regional
+        sub_regionals: sub_regionals.map((sub_regional, i) => {
+            return { id: i, name: sub_regional }
+        })
     })
 
     return regionalTable.insert(regionalRecord)
