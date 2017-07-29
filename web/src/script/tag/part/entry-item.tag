@@ -25,5 +25,6 @@ entry-item
         img
             width: 100%
             height: auto
+            
         desc
             width: 100%
