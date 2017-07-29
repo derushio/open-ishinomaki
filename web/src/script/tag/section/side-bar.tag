@@ -10,5 +10,5 @@ side-bar
             background: $color-main-theme
 
         regional-search, tag-search
-            width: 90%
+            width: 80%
             margin: 32px auto
