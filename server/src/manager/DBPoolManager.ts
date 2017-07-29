@@ -82,6 +82,11 @@ export function escape(value: any): any {
         return value.map((value1: any) => {
             return escape(value1)
         })
+    } else if (value instanceof Object) {
+        return Object.keys(value).reduce((prev: any, key: string) => {
+            prev[key] = escape(value[key])
+            return prev
+        }, {})
     } else if (value == null || typeof value != String.name.toLowerCase()) {
         return value
     }
