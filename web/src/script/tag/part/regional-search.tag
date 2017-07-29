@@ -1,4 +1,4 @@
-regionalsearch
+regional-search
     h3 地域
     .regional(each="{regional, i in regionals}")
         input(type="checkbox" id="{'regionacc'+i}").acc-check
@@ -18,7 +18,11 @@ regionalsearch
                 $('p').text(val);
             });
         });
+
     style(type="sass").
+        regional-search
+            display: block
+
         h3
             color: red
 
