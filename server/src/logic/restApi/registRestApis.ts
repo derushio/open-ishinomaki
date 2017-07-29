@@ -1,4 +1,5 @@
 import {registGetAllTags} from "./getAllTags"
+import {registGetRegional} from "./getRegional"
 import {registPostRegionalEntry} from "./postRegionalEntry"
 
 /**
@@ -7,5 +8,6 @@ import {registPostRegionalEntry} from "./postRegionalEntry"
  */
 export default function registRestApis(server): void {
     registGetAllTags(server)
+    registGetRegional(server)
     registPostRegionalEntry(server)
 }
