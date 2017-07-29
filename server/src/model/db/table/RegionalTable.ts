@@ -39,7 +39,7 @@ export function createRegional(dbpm: DBPoolManager, name: string, sub_regionals:
     regionalRecord.setValues({
         name: name,
         sub_regionals: sub_regionals.map((sub_regional, i) => {
-            return { id: i, name: sub_regional }
+            return { id: (i+1), name: sub_regional }
         })
     })
 
