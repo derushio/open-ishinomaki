@@ -6,12 +6,12 @@ export function registGetRegionalEntries(server) {
     // getメソッドに応答
     server.get("/api/getRegionalEntries" ,(request, response, next) => {
         // あいまい検索用キーワード
-        const q: string = escape(request.body.q)
+        const q: string = escape(request.query.q)
 
-        const tag_ids: number[] = escape(request.body.tag_ids)
-        const tag_and_search: boolean = escape(request.body.tag_and_search)
+        const tag_ids: number[] = escape(request.query.tag_ids)
+        const tag_and_search: boolean = escape(request.query.tag_and_search)
 
-        const regional_id_maps: RegionalIdMapForGet[] = escape(request.body.regional_id_maps)
+        const regional_id_maps: RegionalIdMapForGet[] = escape(request.query.regional_id_maps)
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
             return getRegionalEntries(dbpm, q, tag_ids, tag_and_search,regional_id_maps)
@@ -57,7 +57,7 @@ export default function getRegionalEntries(dbpm: DBPoolManager,q: string,
             return query_id
         })
     }
-    query.replace(/(and$)|(or$)/, ";")
+    query = query.replace(/ (and|or)$/, ";")
     if (query == "") {
         query = "0=0"
     }
