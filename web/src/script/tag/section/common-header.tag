@@ -4,7 +4,7 @@ common-header
         img(src="/resource/image/logo.png").title
     .nav
         a(href="/page/search.html" target="_self") Search
-        a(href="/page/search.html?tag=0" target="_self") 投稿
+        a(href="/page/post-entry.html" target="_self") 投稿
         a(href="https://www.google.co.jp" target="_self") 回覧板
 
     style(type="sass").
