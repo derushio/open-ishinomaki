@@ -7,6 +7,7 @@ const sideBar = require("../../tag/section/side-bar.tag")
 
 const search = require("../../tag/part/search.tag")
 const searchResults = require("../../tag/section/search-results.tag")
+const entryItem = require("../../tag/part/entry-item.tag")
 
 function getParam() {
     let args = {}

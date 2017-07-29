@@ -1,5 +1,5 @@
 search-results
-    entry-item(each="{entry in entries}" image="{entry.images[0]}", desc="{entry.text}")
+    entry-item(each="{entry in entries}" image="{(entry.images)?entry.images[0]:null}", desc="{entry.text}")
 
     script.
         import $ from "jquery"
