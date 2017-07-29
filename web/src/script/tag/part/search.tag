@@ -1,11 +1,12 @@
 search
-    input(type="text" placeholder="Search...")
-    button(type="submit") GO
+    input(type="text" placeholder="キーワード")
+    button(type="submit")
+        img(src="/resource/image/scope.png")
 
     style(type="sass").
         search
             display: flex
-            & > *
+            *
                 display: block
 
         button
@@ -14,6 +15,15 @@ search
             height: 100%
             border-radius: 6px
             margin: 0 0 0 8px
+            position: relative
+
+            img
+                width: auto
+                height: 90%
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
 
         input
             border: 1px solid black
