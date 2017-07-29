@@ -8,6 +8,8 @@ post-entry
         input-form-item(title="画像" id="image" type="file")
         input-form-textarea(title="本文" id="desc")
 
+        button#sendButton(onClick="{onClick}") Post
+
     script.
         import $ from "jquery"
         // TODO: DBから取ってくる
@@ -26,6 +28,11 @@ post-entry
             { name: '1丁目', id: 1 },
             { name: '2丁目', id: 2 }
         ]
+
+        this.onClick = () => {
+            const name = $("form #title", this.root)
+            console.log(name)
+        }
 
         this.on("mount", () => {
             const fileinput = $("input-form-item #image", this.root)
@@ -67,3 +74,10 @@ post-entry
             margin: 32px auto
             padding: 16px
             background: $color-main-theme
+            overflow: hidden
+
+            button#sendButton
+                float: right
+                margin: 8px
+                padding: 8px
+                background: white
