@@ -6,6 +6,7 @@ export function registGetRegionalEntries(server) {
     // getメソッドに応答
     server.get("/api/getRegionalEntries" ,(request, response, next) => {
         // あいまい検索用キーワード
+        const id: number = escape(request.query.id)
         const q: string = escape(request.query.q)
 
         let tag_ids: number[]
@@ -21,7 +22,7 @@ export function registGetRegionalEntries(server) {
         }
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
-            return getRegionalEntries(dbpm, q, tag_ids, tag_and_search,regional_id_maps)
+            return getRegionalEntries(dbpm, id, q, tag_ids, tag_and_search,regional_id_maps)
         }).then((entries: RegionalEntryRecord[]) => {
             response.send(JSON.stringify({
                 response: "ok",
@@ -41,34 +42,38 @@ export function registGetRegionalEntries(server) {
     })
 }
 
-export default function getRegionalEntries(dbpm: DBPoolManager,q: string,
+export default function getRegionalEntries(dbpm: DBPoolManager,id: number, q: string,
         tag_ids: number[], tag_and_search: boolean,
         regional_id_maps: RegionalIdMapForGet[]): Promise<RegionalEntryRecord[]> {
     const regionalEntryTable = new RegionalEntryTable(dbpm)
 
     let query = ""
-    if (q) {
-        query += "name LIKE '%" + q + "%' and"
-    }
-    if (tag_ids) {
-        query += tag_ids.reduce((prev: string, tag_id: number) => {
-            return prev + "'" + tag_id + "'=ANY(tag_ids)" + ((tag_and_search)? " and " : " or ")
-        }, "")
-    }
-    query = query.replace(/ (and|or) $/, "")
-    if (regional_id_maps) {
-        query += regional_id_maps.reduce((prev: string, regional_id_map: RegionalIdMapForGet) => {
-            let query_id = "regional_id=" + regional_id_map.regional_id
-            if (regional_id_map.sub_regional_id) {
-                query_id += " and sub_regional_id=" + regional_id_map.sub_regional_id
-            }
-            query_id += " or "
-            return prev + query_id
-        }, "")
-    }
-    query = query.replace(/ (and|or) $/, ";")
-    if (query == "") {
-        query = "0=0"
+    if (id) {
+        query += "id='" + id + "'"
+    } else {
+        if (q) {
+            query += "name LIKE '%" + q + "%' and"
+        }
+        if (tag_ids) {
+            query += tag_ids.reduce((prev: string, tag_id: number) => {
+                return prev + "'" + tag_id + "'=ANY(tag_ids)" + ((tag_and_search)? " and " : " or ")
+            }, "")
+        }
+        query = query.replace(/ (and|or) $/, "")
+        if (regional_id_maps) {
+            query += regional_id_maps.reduce((prev: string, regional_id_map: RegionalIdMapForGet) => {
+                let query_id = "regional_id=" + regional_id_map.regional_id
+                if (regional_id_map.sub_regional_id) {
+                    query_id += " and sub_regional_id=" + regional_id_map.sub_regional_id
+                }
+                query_id += " or "
+                return prev + query_id
+            }, "")
+        }
+        query = query.replace(/ (and|or) $/, ";")
+        if (query == "") {
+            query = "0=0"
+        }
     }
 
     return regionalEntryTable.search(query)
