@@ -1,5 +1,5 @@
 search-results
-    entry-item(each="{entry in entries}" image="{(entry.images)?entry.images[0]:null}", desc="{entry.text}")
+    entry-item(each="{entry in entries}" name="{entry.name}" image="{(entry.images)?entry.images[0]:null}", desc="{entry.text}")
 
     script.
         import $ from "jquery"
@@ -23,3 +23,7 @@ search-results
     style(type="sass").
         search-results
             display: flex
+            flex-wrap: wrap
+
+        entry-item
+            width: calc(100%/3)
