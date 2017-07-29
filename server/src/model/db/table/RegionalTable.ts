@@ -13,7 +13,7 @@ import ColumnTypes from "../../../define/db/ColumnTypes"
  * @return {[type]}                    [description]
  */
 export default class RegionalTable extends Table {
-    public static tableName: string = "regional_entry"
+    public static tableName: string = "regional"
     public static columns: Column[] = [
         new Column("id", ColumnTypes.serial, false, null, true),
         new Column("name", ColumnTypes.text, true),
