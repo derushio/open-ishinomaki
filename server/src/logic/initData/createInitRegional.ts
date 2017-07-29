@@ -2,7 +2,7 @@ import DBPoolManager from "../../manager/DBPoolManager"
 import RegionalTable, {RegionalRecord, createRegional} from "../../model/db/table/RegionalTable"
 
 /**
- * 初期タグを登録
+ * 初期地域を登録
  * @param  {DBPoolManager} dbpm [description]
  * @return {Promise<any>}       [description]
  */
