@@ -12,6 +12,7 @@ export default class RegionalEntryTable extends Table {
         // TODO: bytea型へ変換する
         new Column("images", ColumnTypes.textArray, false),
         new Column("text", ColumnTypes.text, true),
+        new Column("regional", ColumnTypes.int, true),
         new Column("latlng", ColumnTypes.point, true)
     ]
 }
