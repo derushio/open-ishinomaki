@@ -5,6 +5,7 @@ export default {
     context: path.join(__dirname, "./src/script-es6/entry"),
     entry: {
         "index": "./index.js",
+        "page/search": "./page/search.js",
         // ここにエントリポイントを増やしてください
     },
     output: {
