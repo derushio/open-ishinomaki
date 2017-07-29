@@ -13,6 +13,7 @@ export default class RegionalEntryTable extends Table {
         new Column("images", ColumnTypes.textArray, false),
         new Column("text", ColumnTypes.text, true),
         new Column("regional_id", ColumnTypes.int, true),
+        new Column("sub_regional_id", ColumnTypes.int, false),
         new Column("latlng", ColumnTypes.point, true)
     ]
 }
