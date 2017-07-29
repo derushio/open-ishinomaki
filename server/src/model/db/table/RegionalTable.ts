@@ -1,3 +1,4 @@
+import DBPoolManager, {escape} from "../../../manager/DBPoolManager"
 import Table, {Record} from "./Table"
 import Column from "../column/Column"
 import ColumnTypes from "../../../define/db/ColumnTypes"
@@ -24,3 +25,21 @@ export class RegionalRecord extends Record {}
 
 RegionalTable.RecordClass = RegionalRecord
 RegionalRecord.TableClass = RegionalTable
+
+/**
+ * 地域を追加
+ * @param  {DBPoolManager}           dbpm         [description]
+ * @param  {string}                  name         [description]
+ * @param  {string[]}                sub_regional [description]
+ * @return {Promise<RegionalRecord>}              [description]
+ */
+export function createRegional(dbpm: DBPoolManager, name: string, sub_regional: string[]): Promise<RegionalRecord> {
+    const regionalTable = new RegionalTable(dbpm)
+    const regionalRecord = new RegionalRecord()
+    regionalRecord.setValues({
+        name: name,
+        sub_regional: sub_regional
+    })
+
+    return regionalTable.insert(regionalRecord)
+}
