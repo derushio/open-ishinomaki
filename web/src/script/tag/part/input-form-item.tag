@@ -1,10 +1,10 @@
 input-form-item
-    label(for="{name}") {title}
-    input(type="{type}" name="{name}" value="{def}")
+    label(for="{id}") {title}
+    input(type="{type}" id="{name}" value="{def}")
 
     script.
         this.title = opts.title
-        this.name = opts.name
+        this.id = opts.id
         this.def = opts.def
         this.type = (opts.isPassword)? 'password' : 'text'
 
@@ -22,3 +22,4 @@ input-form-item
             display: block
             flex: 1
             padding: 8px
+            border: 1px solid black

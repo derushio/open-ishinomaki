@@ -1,11 +1,11 @@
 input-form-pulldown
-    label(for="{name}") {title}
-    select(name="{name}")
+    label(for="{id}") {title}
+    select(name="{id}")
         option(each="{option in options}" value="{option.id}") {option.name}
 
     script.
         this.title = opts.title
-        this.name = opts.name
+        this.id = opts.id
         this.options = opts.options
 
     style(type="sass").

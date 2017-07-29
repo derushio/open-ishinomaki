@@ -4,7 +4,9 @@ const riot = require("riot")
 
 const commonHeader = require("../../tag/section/common-header.tag")
 
-const entry = require("../../tag/section/post-entry.tag")
+const inputFormItem = require("../../tag/part/input-form-item.tag")
+const inputFormPulldown = require("../../tag/part/input-form-pulldown.tag")
+const postEntry = require("../../tag/section/post-entry.tag")
 
 function getParam() {
     let args = {}
