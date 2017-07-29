@@ -5,6 +5,7 @@ const riot = require("riot")
 const commonHeader = require("../../tag/section/common-header.tag")
 
 const inputFormItem = require("../../tag/part/input-form-item.tag")
+const inputFormTextarea = require("../../tag/part/input-form-textarea.tag")
 const inputFormPulldown = require("../../tag/part/input-form-pulldown.tag")
 const postEntry = require("../../tag/section/post-entry.tag")
 

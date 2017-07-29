@@ -2,7 +2,8 @@ post-entry
     form
         input-form-item(title="タイトル" id="title")
         input-form-pulldown(title="タグ" id="tag" options="{tagOptions}")
-        input-form-item(title="タイトル" id="title")
+        input-form-item(title="画像" id="image" type="file")
+        input-form-textarea(title="本文" id="desc")
 
     script.
         this.tagOptions = [
