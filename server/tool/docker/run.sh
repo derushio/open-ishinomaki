@@ -1,3 +1,5 @@
+npm run build
+
 docker build -t 'open-ishinomaki' ../../
 docker stop 'open-ishinomaki'
 docker rm 'open-ishinomaki'
