@@ -1,6 +1,6 @@
 input-form-pulldown
     label(for="{iid}") {title}
-    select(name="{iid}")
+    select(id="{iid}")
         option(each="{option in options}" value="{option.id}") {option.name}
 
     script.

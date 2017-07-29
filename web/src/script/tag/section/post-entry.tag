@@ -31,7 +31,8 @@ post-entry
 
         this.onClick = () => {
             const name = $(".form #title", this.root).val()
-            console.log(name)
+            const tag_ids = [Number($(".form #tag").val())]
+            console.log(tag_ids)
         }
 
         this.on("mount", () => {
