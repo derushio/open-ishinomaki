@@ -58,6 +58,9 @@ export default function getRegionalEntries(dbpm: DBPoolManager,q: string,
         })
     }
     query.replace(/(and$)|(or$)/, ";")
+    if (query == "") {
+        query = "0=0"
+    }
 
     return regionalEntryTable.search(query)
 }
