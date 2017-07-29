@@ -6,6 +6,7 @@ export default {
     entry: {
         "index": "./index.js",
         "page/search": "./page/search.js",
+        "page/entry": "./page/entry.js",
         // ここにエントリポイントを増やしてください
     },
     output: {
