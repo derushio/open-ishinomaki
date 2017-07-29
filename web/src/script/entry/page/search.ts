@@ -1,6 +1,8 @@
 export declare function require(name: string): any
 const riot = require("riot")
 
+const commonHeader = require("../../tag/section/common-header.tag")
+
 const regionalSearch = require("../../tag/part/regional-search.tag")
 const tagSearch = require("../../tag/part/tag-search.tag")
 const sideBar = require("../../tag/section/side-bar.tag")
