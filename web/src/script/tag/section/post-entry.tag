@@ -1,7 +1,8 @@
 post-entry
-    input-form-item(title="タイトル" id="title")
-    input-form-pulldown(title="タグ" id="tag" options="{tagOptions}")
-    input-form-item(title="タイトル" id="title")
+    form
+        input-form-item(title="タイトル" id="title")
+        input-form-pulldown(title="タグ" id="tag" options="{tagOptions}")
+        input-form-item(title="タイトル" id="title")
 
     script.
         this.tagOptions = [
@@ -11,5 +12,13 @@ post-entry
         ]
 
     style(type="sass").
+        @import "../../../style/color.sass"
+
         post-entry
             display: block
+
+        form
+            width: 600px
+            margin: 32px auto
+            padding: 16px
+            background: $color-main-theme
