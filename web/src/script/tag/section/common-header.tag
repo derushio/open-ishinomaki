@@ -5,7 +5,8 @@ common-header
     .nav
         a(href="/page/search.html" target="_self") Search
         a(href="/page/post-entry.html" target="_self") 投稿
-        a(href="https://www.google.co.jp" target="_self") 回覧板
+        a(href="#" target="_self") 回覧板
+        a(href="#" target="_self") API仕様
 
     style(type="sass").
         common-header
