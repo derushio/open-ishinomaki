@@ -13,14 +13,14 @@ export default class DateModel extends PsqlModel {
      * @param  {any}       rp [description]
      * @return {PsqlModel}     [description]
      */
-    public static fromPsql(rp: any): PsqlModel {
+    public static fromPsql(rp: string): PsqlModel {
         let dateModel
         dateModel = new DateModel(new Date(rp))
 
         return dateModel
     }
 
-    public toPsqlString(): string {
+    public toPsqlString(): any {
         return dateToString(this.value)
     }
 

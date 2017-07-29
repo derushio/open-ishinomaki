@@ -8,9 +8,12 @@ export function registPostRegionalEntry(server) {
         const tag_ids: number[] = escape(request.body.tag_ids)
         const text: string = escape(request.body.text)
         const images: string[] = escape(request.body.images)
+        const point: string = escape(request.body.latlng)
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
-            return postRegionalEntry(dbpm, name, tag_ids, images, text)
+            const pointArray = point.replace(/\(|\)| /g, "").split(",")
+            const latlng = { x: pointArray[0], y: pointArray[1] }
+            return postRegionalEntry(dbpm, name, tag_ids, images, text, latlng)
         }).then(() => {
             response.send(JSON.stringify({
                 response: "ok"
@@ -20,7 +23,7 @@ export function registPostRegionalEntry(server) {
             response.status(500)
             response.send(JSON.stringify({
                 response: "ng",
-                error: e
+                error: e.message
             }))
         })
     })
@@ -37,14 +40,15 @@ export function registPostRegionalEntry(server) {
  * @return {Promise<RegionalEntryRecord>}            [description]
  */
 export default function postRegionalEntry(dbpm: DBPoolManager, name: string,
-        tag_ids: number[], images: string[], text: string): Promise<RegionalEntryRecord> {
+        tag_ids: number[], images: string[], text: string, latlng: any): Promise<RegionalEntryRecord> {
     const regionalEntryTable = new RegionalEntryTable(dbpm)
     const regionalEntryRecord = new RegionalEntryRecord()
     regionalEntryRecord.setValues({
         name: name,
         tag_ids: tag_ids,
         images: images,
-        text: text
+        text: text,
+        latlng: latlng
     })
 
     return regionalEntryTable.insert(regionalEntryRecord)

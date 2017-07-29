@@ -16,7 +16,6 @@ export default class PointModel extends PsqlModel {
      * @return {PsqlModel}     [description]
      */
     public static fromPsql(rp: any): PointModel {
-        console.log(rp)
         let pointModel = new PointModel(rp.x, rp.y)
         return pointModel
     }
