@@ -1,4 +1,6 @@
 side-bar
+    regional-search
+    tag-search
 
     style(type="sass").
         @import "../../../style/color.sass"
