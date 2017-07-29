@@ -1,10 +1,10 @@
 input-form-textarea
-    label(for="{id}") {title}
-    textarea(id="{name}" value="{def}")
+    label(for="{iid}") {title}
+    textarea(id="{iid}" value="{def}")
 
     script.
         this.title = opts.title
-        this.id = opts.id
+        this.iid = opts.iid
         this.def = opts.def
 
     style(type="sass").

@@ -1,10 +1,10 @@
 input-form-item
-    label(for="{id}") {title}
-    input(type="{type}" id="{id}" value="{def}")
+    label(for="{iid}") {title}
+    input(type="{type}" id="{iid}" value="{def}")
 
     script.
         this.title = opts.title
-        this.id = opts.id
+        this.iid = opts.iid
         this.def = opts.def
         this.type = (opts.type)? opts.type : 'text'
 

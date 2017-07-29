@@ -1,12 +1,12 @@
 post-entry
-    form
-        input-form-item(title="タイトル" id="title")
-        input-form-pulldown(title="タグ" id="tag" options="{tagOptions}")
-        input-form-pulldown(title="地域" id="regional" options="{regionalOptions}")
-        input-form-pulldown(title="地域区分" id="subRegional" options="{subRegionalOptions}")
+    .form
+        input-form-item(title="タイトル" iid="title")
+        input-form-pulldown(title="タグ" iid="tag" options="{tagOptions}")
+        input-form-pulldown(title="地域" iid="regional" options="{regionalOptions}")
+        input-form-pulldown(title="地域区分" iid="subRegional" options="{subRegionalOptions}")
         img#preview
-        input-form-item(title="画像" id="image" type="file")
-        input-form-textarea(title="本文" id="desc")
+        input-form-item(title="画像" iid="image" type="file")
+        input-form-textarea(title="本文" iid="desc")
 
         button#sendButton(onClick="{onClick}") Post
 
@@ -30,7 +30,7 @@ post-entry
         ]
 
         this.onClick = () => {
-            const name = $("form #title", this.root)
+            const name = $(".form #title", this.root).val()
             console.log(name)
         }
 
@@ -69,7 +69,7 @@ post-entry
             width: 90%
             height: auto
 
-        form
+        .form
             width: 600px
             margin: 32px auto
             padding: 16px
