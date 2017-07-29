@@ -2,6 +2,8 @@ export declare function require(name: string): any
 const $  = require("jquery")
 const riot = require("riot")
 
+const commonHeader = require("../../tag/section/common-header.tag")
+
 const entry = require("../../tag/section/post-entry.tag")
 
 function getParam() {
