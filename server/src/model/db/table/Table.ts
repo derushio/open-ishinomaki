@@ -276,7 +276,7 @@ export class Record {
 
     public toObject(): any {
         const object = this.columns.reduce((prev: any, column: Column): any => {
-            prev[column.name] = this.getValue(column.name)
+            prev[column.name] = this.getValue(column.name) || null
             return prev
         }, {})
 
