@@ -116,7 +116,7 @@ export default class Table {
             if (column.type.jstype == Array) {
                 // PSQL ARRAY
                 valuesText += value.reduce((prev: string, value2: any) => {
-                    return prev + escape(value2) + ", "
+                    return prev + "\"" + escape(value2) + "\"" + ", "
                 }, "'{")
                 valuesText = valuesText.replace(/, $/, "}'")
             } else if (column.type.jstype.prototype instanceof PsqlModel) {

@@ -4,6 +4,7 @@ search-results
     script.
         import $ from "jquery"
         import {pajax} from "../../util/PromisedAjax"
+        import Base64 from "../../util/Base64"
 
         this.args = window.args
         this.entries = []
