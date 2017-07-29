@@ -8,10 +8,17 @@ export function registGetRegionalEntries(server) {
         // あいまい検索用キーワード
         const q: string = escape(request.query.q)
 
-        const tag_ids: number[] = escape(request.query.tag_ids)
+        let tag_ids: number[]
+        if (request.query.tag_ids) {
+            tag_ids = escape(JSON.parse(request.query.tag_ids))
+        }
+
         const tag_and_search: boolean = escape(request.query.tag_and_search)
 
-        const regional_id_maps: RegionalIdMapForGet[] = escape(request.query.regional_id_maps)
+        let regional_id_maps: RegionalIdMapForGet[]
+        if (request.query.regional_id_maps) {
+            regional_id_maps = escape(JSON.parse(request.query.regional_id_maps))
+        }
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
             return getRegionalEntries(dbpm, q, tag_ids, tag_and_search,regional_id_maps)
@@ -44,20 +51,22 @@ export default function getRegionalEntries(dbpm: DBPoolManager,q: string,
         query += "name LIKE '%" + q + "%' and"
     }
     if (tag_ids) {
-        query += tag_ids.map((tag_id) => {
-            return "ANY(tag_ids)='" + "tag_id" + "'" + (tag_and_search)? " and" : " or"
-        })
+        query += tag_ids.reduce((prev: string, tag_id: number) => {
+            return prev + "'" + tag_id + "'=ANY(tag_ids)" + ((tag_and_search)? " and " : " or ")
+        }, "")
     }
+    query = query.replace(/ (and|or) $/, "")
     if (regional_id_maps) {
-        query += regional_id_maps.map((regional_id_map: RegionalIdMapForGet) => {
-            let query_id = "regional_id=" + regional_id_map.regionalId
-            if (regional_id_map.subRegionalId) {
-                query_id += "and sub_regional_id=" + regional_id_map.subRegionalId
+        query += regional_id_maps.reduce((prev: string, regional_id_map: RegionalIdMapForGet) => {
+            let query_id = "regional_id=" + regional_id_map.regional_id
+            if (regional_id_map.sub_regional_id) {
+                query_id += " and sub_regional_id=" + regional_id_map.sub_regional_id
             }
-            return query_id
-        })
+            query_id += " or "
+            return prev + query_id
+        }, "")
     }
-    query = query.replace(/ (and|or)$/, ";")
+    query = query.replace(/ (and|or) $/, ";")
     if (query == "") {
         query = "0=0"
     }
@@ -66,6 +75,6 @@ export default function getRegionalEntries(dbpm: DBPoolManager,q: string,
 }
 
 interface RegionalIdMapForGet {
-    regionalId: number
-    subRegionalId: number
+    regional_id: number
+    sub_regional_id: number
 }
