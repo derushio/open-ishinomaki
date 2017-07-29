@@ -1,5 +1,5 @@
 entry-item
-    img(src="https://nekogazou.com/wp-content/uploads/2015/03/gazou12-e1426694824704.jpg" )
+    img(src="https://nekogazou.com/wp-content/uploads/2015/03/gazou12-e1426694824704.jpg")
     .desc.
         test test test test
 
