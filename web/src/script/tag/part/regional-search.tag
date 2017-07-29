@@ -5,7 +5,8 @@ regional-search
         input(type="checkbox" name="{'regional'+i}")
         label(for="{'regionacc'+i}") {regional}
         .acc-inner
-            input(type="checkbox" id="test") test
+            input(type="checkbox" id="test")
+            label(for="test") test
     script.
         import $ from "jquery"
         this.regionals = [
