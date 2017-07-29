@@ -15,10 +15,10 @@ regional-search
         ]
         $(function() {
             $('#test').change(function() {
-                var val = $(this).val();
-                $('p').text(val);
-            });
-        });
+                let val = $(this).val()
+                $('p').text(val)
+            })
+        })
 
     style(type="sass").
         regional-search
