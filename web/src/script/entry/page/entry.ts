@@ -2,10 +2,8 @@ export declare function require(name: string): any
 const $  = require("jquery")
 const riot = require("riot")
 
-const googleMap = require("../../tag/part/google-map")
-const entry = require("../../tag/section/entry")
-
-import {pajax} from "../../util/PromisedAjax"
+const googleMap = require("../../tag/part/google-map.tag")
+const entry = require("../../tag/section/entry.tag")
 
 function getParam() {
     let args = {}
