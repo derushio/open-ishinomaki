@@ -1,27 +1,34 @@
 entry
     h1 {name}
-    img.main-image(riot-src:image)
-    .desc {desc}
-    .position {position}
-    google-map(latlng={latlng})
+    #img
+    .desc {(entry)?entry.text:null}
+    .position {(entry)?entry.regional_id + ", " + entry.sub_regional_id:null}
+    google-map(latlng="{(entry)?entry.latlng:null}")
 
     script.
-        import {pajax} from "../../util/PromisedAjax"
+        import $ from "jquery"
 
-        this.name
-        this.image
-        this.desc
-        this.position
-        this.latlng
+        import {pajax} from "../../util/PromisedAjax"
+        import Base64 from "../../util/Base64"
+
+        this.entry
 
         this.on("mount", () => {
-            pajax("get", "/api/getRegionalEntries", "", {
-                id: window.args.id
-            }).then((response) => {
+            pajax("get", "/api/getRegionalEntries?id=" +
+                    window.args.id, null, null).then((response) => {
                 console.log(response)
+                this.entry = response.entries[0]
+                this.update()
+                return Base64.decodeToImage(this.entry.images[0])
+            }).then((img) => {
+                $('#img', this.root)[0].appendChild(img)
             })
         })
 
     style(type="sass").
         entry
             display: block
+
+        img
+            width: 400px
+            height: auto
