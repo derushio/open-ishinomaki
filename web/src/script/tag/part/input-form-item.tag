@@ -1,6 +1,6 @@
 input-form-item
     label(for="{id}") {title}
-    input(type="{type}" id="{name}" value="{def}")
+    input(type="{type}" id="{id}" value="{def}")
 
     script.
         this.title = opts.title
