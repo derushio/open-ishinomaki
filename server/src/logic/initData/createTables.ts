@@ -1,4 +1,5 @@
 import DBPoolManager from "../../manager/DBPoolManager"
+import RegionalTable from "../../model/db/table/RegionalTable"
 import RegionalEntryTable from "../../model/db/table/RegionalEntryTable"
 import RegionalEntryTagTable from "../../model/db/table/RegionalEntryTagTable"
 
@@ -9,6 +10,7 @@ import RegionalEntryTagTable from "../../model/db/table/RegionalEntryTagTable"
 export default function createTables(): Promise<boolean[]> {
     return DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
         return Promise.all([
+            new RegionalTable(dbpm).create(),
             new RegionalEntryTable(dbpm).create(),
             new RegionalEntryTagTable(dbpm).create()
         ])
