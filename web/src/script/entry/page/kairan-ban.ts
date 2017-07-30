@@ -3,6 +3,8 @@ const $  = require("jquery")
 const riot = require("riot")
 
 const commonHeader = require("../../tag/section/common-header.tag")
+const entryItem = require("../../tag/section/entry-item.tag")
+const searchResults = require("../../tag/section/search-results.tag")
 
 function getParam() {
     let args = {}
@@ -15,5 +17,6 @@ function getParam() {
 }
 
 ;(<any>window).args = getParam()
+;(<any>window).args.q = "石巻"
 
 riot.mount("*")
