@@ -9,5 +9,16 @@ html
         .content
             .main
                 common-header
+                
+                .api-entry
+                    h2 endpoint | getRegionalEntries
+                    | method 'get'
+                    br
+                    | parameter
+                    ul
+                        li id エントリのid 例: '3'
+                        li q 名前であいまい検索 例: 'カレー'
+                        li tag_ids タグID配列で検索 例: '[1, 5]'
+                        li regional_id_maps 地域IDMAPで検索 例: '[{regional_id: 1, sub_regional_id: 2}]'
 
         script(src="../script/entry/page/api.js")
