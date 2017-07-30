@@ -37,7 +37,7 @@ post-entry
             const tag_ids = [Number($(".form #tag").val())]
             const regional_id = Number($(".form #regional").val())
             const sub_regional_id = Number($(".form #subRegional").val())
-            const text = [Number($(".form #desc").val())]
+            const text = $(".form #desc").val()
             let images = [Base64.encodeToBase64Image($(".form img#preview", this.root)[0], "image/jpg")]
             if (images[0] == "data:,") {
                 images = null
@@ -50,7 +50,7 @@ post-entry
                 text: text,
                 images: images
             }).then((response) => {
-                console.log(response)
+                window.location.href = "/page/search.html"
             })
         }
 

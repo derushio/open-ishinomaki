@@ -1,8 +1,7 @@
 entry
-    h1 {name}
+    h1 {(entry)?entry.name:null}
     #img
     .desc {(entry)?entry.text:null}
-    .position {(entry)?entry.regional_id + ", " + entry.sub_regional_id:null}
     google-map(latlng="{(entry)?entry.latlng:null}")
 
     script.

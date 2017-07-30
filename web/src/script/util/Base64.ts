@@ -1,3 +1,6 @@
+export declare function require(name: string): any
+const $  = require("jquery")
+
 import { CannotCreateInstanceError } from "../define/Error"
 
 declare function escape(text:string): string
@@ -32,8 +35,11 @@ export default class Base64 {
     public static encodeToBase64Image(img, mime_type) {
         // New Canvas
         var canvas = document.createElement('canvas')
-        canvas.width  = img.width
-        canvas.height = img.height
+        var theImage = new Image()
+        theImage.src = $(img).attr("src")
+
+        canvas.width  = theImage.width
+        canvas.height = theImage.height
         // Draw Image
         var ctx = canvas.getContext('2d')
         ctx.drawImage(img, 0, 0)
