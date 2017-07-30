@@ -20,5 +20,18 @@ html
                         li q 名前であいまい検索 例: 'カレー'
                         li tag_ids タグID配列で検索 例: '[1, 5]'
                         li regional_id_maps 地域IDMAPで検索 例: '[{regional_id: 1, sub_regional_id: 2}]'
+                    br
+                    br
+                    | response
+                    pre
+                        code.response.
+                            [{
+                                id: エントリのid 例: '3'
+                                name: エントリの名前: 'カレー'
+                                tag_ids タグID配列 例: '[1, 5]'
+                                regional_id: 地域ID 例: '1'
+                                sub_regional_id: サブ地域ID 例: '1'
+                                images: base64画像データ 例: '["data:image/png;base64,..."]'
+                            }, ...]
 
         script(src="../script/entry/page/api.js")
