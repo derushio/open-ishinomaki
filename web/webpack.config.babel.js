@@ -7,7 +7,8 @@ export default {
         "index": "./index.js",
         "page/search": "./page/search.js",
         "page/entry": "./page/entry.js",
-        "page/post-entry": "./page/post-entry.js"
+        "page/post-entry": "./page/post-entry.js",
+        "page/kairan-ban": "./page/kairan-ban.js"
         // ここにエントリポイントを増やしてください
     },
     output: {
