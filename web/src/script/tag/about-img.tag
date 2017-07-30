@@ -1,5 +1,5 @@
 about-img
-  img(src="art_2.jpg")
+  img(src="../resource/image/art_2.jpg")
   .concept
     h3 コンセプト
     p 石巻の情報を効率よく、楽しく収集したい。

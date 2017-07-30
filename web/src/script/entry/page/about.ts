@@ -3,6 +3,6 @@ const riot = require("riot")
 
 const test = require("../../tag/test.tag")
 const aboutImg = require("../../tag/about-img.tag")
-const about = require("../../tag/about.tag")
+const aboutImg2 = require("../../tag/about-img-2.tag")
 
 riot.mount("*")
