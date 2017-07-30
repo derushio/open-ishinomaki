@@ -3,7 +3,7 @@ const $  = require("jquery")
 const riot = require("riot")
 
 const commonHeader = require("../../tag/section/common-header.tag")
-const entryItem = require("../../tag/section/entry-item.tag")
+const entryItem = require("../../tag/part/entry-item.tag")
 const searchResults = require("../../tag/section/search-results.tag")
 
 function getParam() {
