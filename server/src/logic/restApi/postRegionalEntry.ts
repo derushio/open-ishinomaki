@@ -13,8 +13,12 @@ export function registPostRegionalEntry(server) {
         const point: string = escape(request.body.latlng)
 
         DBPoolManager.getInstance().then((dbpm: DBPoolManager) => {
-            const pointArray = point.replace(/\(|\)| /g, "").split(",")
-            const latlng = { x: pointArray[0], y: pointArray[1] }
+            let latlng
+            if (point) {
+                const pointArray = point.replace(/\(|\)| /g, "").split(",")
+                latlng = { x: pointArray[0], y: pointArray[1] }
+            }
+
             return postRegionalEntry(dbpm, name, tag_ids, images, text, regional_id, sub_regional_id, latlng)
         }).then(() => {
             response.send(JSON.stringify({

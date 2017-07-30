@@ -12,6 +12,9 @@ post-entry
 
     script.
         import $ from "jquery"
+        import {pajax} from "../../util/PromisedAjax"
+        import Base64 from "../../util/Base64"
+
         // TODO: DBから取ってくる
         this.tagOptions = [
             { name: 'イベント', id: 1 },
@@ -32,7 +35,23 @@ post-entry
         this.onClick = () => {
             const name = $(".form #title", this.root).val()
             const tag_ids = [Number($(".form #tag").val())]
-            console.log(tag_ids)
+            const regional_id = Number($(".form #regional").val())
+            const sub_regional_id = Number($(".form #subRegional").val())
+            const text = [Number($(".form #desc").val())]
+            let images = [Base64.encodeToBase64Image($(".form img#preview", this.root)[0], "image/jpg")]
+            if (images[0] == "data:,") {
+                images = null
+            }
+            pajax("post", "/api/postRegionalEntry", null, {
+                name: name,
+                tag_ids: tag_ids,
+                regional_id: regional_id,
+                sub_regional_id: sub_regional_id,
+                text: text,
+                images: images
+            }).then((response) => {
+                console.log(response)
+            })
         }
 
         this.on("mount", () => {

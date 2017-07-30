@@ -29,6 +29,18 @@ export default class Base64 {
         return decodeURIComponent(escape(atob(base64)))
     }
 
+    public static encodeToBase64Image(img, mime_type) {
+        // New Canvas
+        var canvas = document.createElement('canvas')
+        canvas.width  = img.width
+        canvas.height = img.height
+        // Draw Image
+        var ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0)
+        // To Base64
+        return canvas.toDataURL(mime_type)
+    }
+
     public static decodeToImage(base64: string): Promise<any> {
         return new Promise((resolve, reject) => {
             const img = new Image()
