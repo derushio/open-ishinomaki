@@ -9,7 +9,8 @@ export default {
         "page/entry": "./page/entry.js",
         "page/post-entry": "./page/post-entry.js",
         "page/kairan-ban": "./page/kairan-ban.js",
-        "page/about": "./page/about.js"
+        "page/about": "./page/about.js",
+        "page/api": "./page/api.js"
         // ここにエントリポイントを増やしてください
     },
     output: {
