@@ -10,12 +10,7 @@ search-results
         this.entries = []
 
         this.on("mount", () => {
-            pajax("get", "/api/getRegionalEntries", null, {
-
-            }).then((response) => {
-                console.log(response)
-                // TODO base64 変換
-
+            pajax("get", "/api/getRegionalEntries?q=" + window.args.q, null, null).then((response) => {
                 this.entries = response.entries
                 this.update()
             })

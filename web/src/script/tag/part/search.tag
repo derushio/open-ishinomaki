@@ -1,7 +1,15 @@
 search
-    input(type="text" placeholder="キーワード")
-    button(type="submit")
+    input(type="text" placeholder="キーワード")#q
+    button(onClick="{onClick}")
         img(src="/resource/image/scope.png")
+
+    script.
+        import $ from "jquery"
+
+        this.onClick = () => {
+            const q = $("#q", this.root).val()
+            window.location.href = "?q=" + q
+        }
 
     style(type="sass").
         search

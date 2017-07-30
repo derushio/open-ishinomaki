@@ -43,7 +43,10 @@ entry-item
             width: 100%
             font-size: 16px
 
-        img
+        #img
+            width: 100%
+            
+        #img img
             width: 100%
             height: auto
 

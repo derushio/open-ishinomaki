@@ -52,7 +52,7 @@ export default function getRegionalEntries(dbpm: DBPoolManager,id: number, q: st
         query += "id='" + id + "'"
     } else {
         if (q) {
-            query += "name LIKE '%" + q + "%' and"
+            query += "name LIKE '%" + q + "%' and "
         }
         if (tag_ids) {
             query += tag_ids.reduce((prev: string, tag_id: number) => {
